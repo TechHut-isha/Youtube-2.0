@@ -1,5 +1,8 @@
-#Youtube 2.0 App
+# **Youtube 2.0 App**
+- Project made up with ReactJS and MaterialUI
+## For run the project
+1. Clone the project
+2. cd project_name
+3. npm start
 
--1.Clone the Project
--2.cd Project_name
--3.npm start
+
