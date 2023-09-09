@@ -22,7 +22,7 @@ const VideoDetail = () => {
 
   if(!videoDetail?.snippet) return <Loader />;
 
-  const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+  const { snippet: { title, channelId, channelTitle, publishedAt }, statistics: { viewCount, likeCount } } = videoDetail;
 
   return (
     <Box minHeight="95vh">
@@ -34,18 +34,23 @@ const VideoDetail = () => {
               {title}
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
-              <Link to={`/channel/${channelId}`}>
+            <Link to={`/channel/${channelId}`}>
                 <Typography variant={{ sm: "subtitle1", md: 'h6' }}  color="#fff" >
                   {channelTitle}
                   <CheckCircleIcon sx={{ fontSize: "12px", color: "gray", ml: "5px" }} />
                 </Typography>
               </Link>
+              </Stack>
+            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
               <Stack direction="row" gap="20px" alignItems="center">
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
                   {parseInt(viewCount).toLocaleString()} views
                 </Typography>
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
                   {parseInt(likeCount).toLocaleString()} likes
+                </Typography>
+                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                  Released On: {new Date(publishedAt).toLocaleDateString()}
                 </Typography>
               </Stack>
             </Stack>
